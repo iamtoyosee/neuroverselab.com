@@ -36,7 +36,7 @@ const projects = [
     summary:
       "An AI-orchestrated penetration testing platform. LLM agents plan the attack, deterministic security tools carry it out, a Safety Judge keeps every action in scope, and a Validator reproduces each exploit before it becomes a finding. In active development.",
     cover: dendrite,
-    url: "https://github.com/iamtoyosee/Agentic-Pentest",
+    url: "https://pentest.neuroverselab.com",
     github: "https://github.com/iamtoyosee/Agentic-Pentest",
     status: "Front end complete on realistic sample data. Backend orchestration in progress.",
     oneLiner:
