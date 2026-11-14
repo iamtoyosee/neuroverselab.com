@@ -5,6 +5,7 @@ import App from "./App.js";
 import About from "./Components/AboutPage/about.js";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Project from "./Components/Projectpage/projects.js";
+import ProjectDetail from "./Components/ProjectDetail/projectDetail.js";
 // TODO(blog): re-enable when blog data is restored
 // import Article from "./Components/Articlespage/articles.js";
 import Pics from "./Components/PicturePage/picspage.js";
@@ -27,6 +28,7 @@ const PageRoute = () => {
         {/* TODO(blog): <Route path="/blog/:postid" exact element={<BlogPage />} /> */}
         <Route path="/about" exact element={<About />} />
         <Route path="/projects" exact element={<Project />} />
+        <Route path="/projects/:slug" element={<ProjectDetail />} />
         {/* TODO(blog): <Route path="/blog" exact element={<Article />} /> */}
         <Route path="/pictures" exact element={<Pics/>} />
       </Routes>

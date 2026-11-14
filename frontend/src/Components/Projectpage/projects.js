@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/navabar";
 import projectList from "../../data/projects";
 
@@ -58,24 +58,41 @@ const Project = () => {
           {posts.map((item, index) => {
             return (
               <div key={index} className="border-y lg:grid grid-cols-2 gap-12  py-10 md:py-20">
-                <img
-                  src={item.cover}
-                  alt={item.title}
-                  className="h-[330px] w-full lg:max-w-lg object-cover cursor-pointer object-top "
-                />
+                <Link to={`/projects/${item.slug}`}>
+                {item.cover ? (
+                  <img
+                    src={item.cover}
+                    alt={item.title}
+                    className="h-[330px] w-full lg:max-w-lg object-cover cursor-pointer object-top hover:opacity-90 transition"
+                  />
+                ) : (
+                  // No screenshot yet: purple panel with the project name
+                  <div className="h-[330px] w-full lg:max-w-lg bg-accent-soft flex items-center justify-center">
+                    <span className="font-display font-bold text-3xl text-accent">{item.title}</span>
+                  </div>
+                )}
+                </Link>
                 <div className=" top-[50%] w-full lg:min-h-[330px]">
                   <div
                     className="lg:h-[70%]"
                     // onClick={() => navigate(item.url)}
                     // className="font-smalltech hover:font-bigtech text-lg  hover:border-[#d6a419] text-gray my-6 min-w-[200px] border sm:border-2 p-2 2xl:p-4 hover:bg-white  duration-300 ease-in w-[50%] mx-auto"
                   >
-                    <h1 className="mt-10 lg:mt-0 text-xl lg:text-2xl mb-4 font-bignote text-left">
-                      {item.title}
-                    </h1>
+                    <Link to={`/projects/${item.slug}`}>
+                      <h1 className="mt-10 lg:mt-0 text-xl lg:text-2xl mb-4 font-bignote text-left hover:text-accent transition">
+                        {item.title}
+                      </h1>
+                    </Link>
 
                     <p className="font-smalltech text-[18px] lg:text-[20px]  ">
                   {item.summary}
                               </p>
+                    <Link
+                      to={`/projects/${item.slug}`}
+                      className="inline-block mt-4 font-body font-semibold text-[16px] text-accent hover:underline"
+                    >
+                      What is this? Read the quick breakdown →
+                    </Link>
                   </div>
                   
                   <div className=" grid grid-cols-2 gap-5 lg:gap-20 lg:max-w-[80%] py-10">
