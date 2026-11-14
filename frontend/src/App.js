@@ -4,8 +4,6 @@ import Navbar from "./Components/Navbar/navabar";
 import Proto1 from "./assets/blogimage1.avif";
 import Proto2 from "./assets/blogimage2.avif";
 import Proto3 from "./assets/blogimage3.avif";
-import Proj1 from "./assets/dnsanalyze.png";
-import Proj2 from "./assets/scanner.webp";
 import Proj3 from "./assets/project3.png";
 import Test1 from "./assets/test.svg";
 import Test2 from "./assets/test2.svg";
@@ -13,7 +11,7 @@ import Test3 from "./assets/test3.svg";
 import Test4 from "./assets/test4.svg";
 import { Button, ButtonBox } from "./Components/Button/button";
 import ExperienceGallery from "./Components/ExpCarousel/experience";
-import running from "./assets/running.gif";
+import projectList from "./data/projects";
 import Footer from "./Components/Footer/Footer";
 import Cert from "./Components/CertPage/cert";
 // TODO(blog): Content loads posts from the API; projects are hardcoded below for now
@@ -213,63 +211,26 @@ function App() {
 
             {/* TODO(blog): was <Content filterString={'project'}/> (loaded from the API) */}
             <div className="grid lg:grid-cols-3 gap-10 mb-[120px] text-center">
-              <div>
-                <img src={Proj1} className="h-[250px] w-full" />
-                <p className="font-bignote mt-8 md:mb-3 text-[18px] lg:text-[20px]">
-                  Advanced DNS Analyzer
-                </p>
-                <p className="font-smalltech text-[18px] lg:text-[20px]">
-                  This DNS analyzer provides in-depth insight on the state of a
-                  DNS infrastructure using AI & ML.
-                </p>
-                <div className="flex justify-center mt-4 lg:mt-10">
-                  <a
-                    href="https://github.com/iamtoyosee/DNS-Analyzer/tree/main"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <ButtonBox text="View Project" />
-                  </a>
+              {projectList.slice(0, 3).map((project) => (
+                <div key={project.title}>
+                  <img
+                    src={project.cover}
+                    alt={project.title}
+                    className="h-[250px] w-full object-cover object-top"
+                  />
+                  <p className="font-bignote mt-8 md:mb-3 text-[18px] lg:text-[20px]">
+                    {project.title}
+                  </p>
+                  <p className="font-smalltech text-[18px] lg:text-[20px]">
+                    {project.summary}
+                  </p>
+                  <div className="flex justify-center mt-4 lg:mt-10">
+                    <a href={project.url} target="_blank" rel="noopener noreferrer">
+                      <ButtonBox text="View Project" />
+                    </a>
+                  </div>
                 </div>
-              </div>
-              <div>
-                <img src={Proj2} className="h-[250px] w-full" />
-                <p className="font-bignote mt-8 md:mb-3 text-[18px] lg:text-[20px]">
-                  Black Sniffer
-                </p>
-                <p className="font-smalltech text-[18px] lg:text-[20px]">
-                  command-line tool written in Rust for scanning open ports on a
-                  specified target IP address.
-                </p>
-                <div className="flex justify-center mt-4 lg:mt-10">
-                  <a
-                    href="https://github.com/iamtoyosee/Black_Sniffer"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <ButtonBox text="View Project" />
-                  </a>{" "}
-                </div>
-              </div>
-              <div>
-                <img src={running} className="h-[250px] w-full" />
-                <p className="font-bignote mt-8 md:mb-3 text-[18px] lg:text-[20px]">
-                  Inside Out
-                </p>
-                <p className="font-smalltech text-[18px] lg:text-[20px]">
-                  A command-line tool for performing quick conversions between
-                  different data formats..
-                </p>
-                <div className="flex justify-center mt-4 lg:mt-10">
-                  <a
-                    href="https://github.com/iamtoyosee/Inside_Out"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <ButtonBox text="View Project" />
-                  </a>{" "}
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 

@@ -60,8 +60,8 @@ const Project = () => {
               <div key={index} className="border-y lg:grid grid-cols-2 gap-12  py-10 md:py-20">
                 <img
                   src={item.cover}
-                  alt="product "
-                  className="h-[330px] w-full lg:max-w-lg object-cover  cursor-pointer object-center "
+                  alt={item.title}
+                  className="h-[330px] w-full lg:max-w-lg object-cover cursor-pointer object-top "
                 />
                 <div className=" top-[50%] w-full lg:min-h-[330px]">
                   <div
